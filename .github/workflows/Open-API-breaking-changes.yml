@@ -9,11 +9,6 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
-      - name: Set ENV
-        env:
-          HEAD-SPEC: head/api.github.com.yaml
-          BASE-SPEC: base/api.github.com.yaml
-          GITHUB-TOKEN: ${{ github.github_token }}
       - name: Check out HEAD revision
         uses: actions/checkout@v2
         with:
@@ -27,6 +22,6 @@ jobs:
       - name: Run OpenAPI Diff (from HEAD revision)
         uses: LimeFlight/openapi-diff-action@master
         with:
-          head-spec: head/api.github.com.yaml
-          base-spec: base/api.github.com.yaml
-          github-token: ${{ github.github_token }}
+          head_spec: head/api.github.com.yaml
+          base_spec: base/api.github.com.yaml
+          github_token: ${{ github.github_token }}
