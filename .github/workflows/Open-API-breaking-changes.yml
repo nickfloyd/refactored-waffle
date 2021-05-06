@@ -9,6 +9,11 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
+      - name: Set ENV
+        env:
+          HEAD-SPEC: head/api.github.com.yaml
+          BASE-SPEC: base/api.github.com.yaml
+          GITHUB-TOKEN: ${{ github.github_token }}
       - name: Check out HEAD revision
         uses: actions/checkout@v2
         with:
