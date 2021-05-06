@@ -17,9 +17,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: ${{ github.base_ref }}
-          path: base
-      - uses: actions/checkout@v2    
+          path: base   
       - name: Run OpenAPI Diff (from HEAD revision)
-        if: always()
-        run: openapitools/openapi-diff head/api.github.com.yaml base/api.github.com.yaml
+        run: docker build -t local-openapi-diff .
+        # run: openapitools/openapi-diff head/api.github.com.yaml base/api.github.com.yaml
 
