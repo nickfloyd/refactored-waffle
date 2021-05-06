@@ -8,7 +8,18 @@ jobs:
     container:
       image: openapitools/openapi-diff
     steps:
-     - name: Log the node version
-       run: |
-         node -v
-         cat /etc/os-release
+      - name: Check out HEAD revision
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          path: head
+      - name: Check out BASE revision
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.base_ref }}
+          path: base
+      - uses: actions/checkout@v2    
+      - name: Run OpenAPI Diff (from HEAD revision)
+        if: always()
+        run: openapitools/openapi-diff:latest head/api.github.com.yaml base/api.github.com.yaml
+
