@@ -24,4 +24,5 @@ jobs:
         with:
           head_spec: head/api.github.com.yaml
           base_spec: base/api.github.com.yaml
+          add_comment: true
           github_token: ${{ github.github_token }}
