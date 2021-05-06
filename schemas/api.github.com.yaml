@@ -93,9 +93,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  current_user_url:
-                    type: string
-                    format: uri-template
                   current_user_authorizations_html_url:
                     type: string
                     format: uri-template
