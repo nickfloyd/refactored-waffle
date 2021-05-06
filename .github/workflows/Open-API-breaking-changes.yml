@@ -5,19 +5,17 @@ name: openapi-diff
 jobs:
   job-name:
     runs-on: ubuntu-latest
-    container:
-      image: openapitools/openapi-diff
-    steps:
-      - name: Check out HEAD revision
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
-          path: head
-      - name: Check out BASE revision
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.base_ref }}
-          path: base   
-      - name: Run OpenAPI Diff (from HEAD revision)
-        run: openapi-diff head/api.github.com.yaml base/api.github.com.yaml
+    steps: 
+    - name: Check out HEAD revision
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
+        path: head
+    - name: Check out BASE revision
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.base_ref }}
+        path: base   
+    - name: Run OpenAPI Diff (from HEAD revision)
+      uses: docker://openapitools/openapi-diff:latest head/api.github.com.yaml base/api.github.com.yaml
 
