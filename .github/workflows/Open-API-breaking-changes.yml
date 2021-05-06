@@ -24,4 +24,4 @@ jobs:
         with:
           head-spec: head/api.github.com.yaml
           base-spec: base/api.github.com.yaml
-          github-token: ${{ github.token }}
+          github-token: ${{ github.github_token }}
