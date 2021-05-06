@@ -1,8 +1,8 @@
 on: [pull_request]
 
-name: openapi-diff
+name: validate-OpenAPI-changes
 jobs:
-  job-name:
+  detect-breaking-changes: 
     runs-on: ubuntu-latest
     steps: 
     - name: Check out HEAD revision
@@ -15,10 +15,6 @@ jobs:
       with:
         ref: ${{ github.base_ref }}
         path: base   
-    - name: What OS
-      run: uname -a
-    - name: LS
-      run: ls
     - name: Run OpenAPI Diff (from HEAD revision)
       uses: docker://openapitools/openapi-diff:latest 
       with:
