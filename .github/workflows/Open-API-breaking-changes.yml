@@ -18,5 +18,5 @@ jobs:
     - name: Run OpenAPI Diff (from HEAD revision)
       uses: docker://openapitools/openapi-diff:latest 
       with:
-        args: head/schemas/api.github.com.yaml base/schemas/api.github.com.yaml
+        args: --fail-on-incompatible head/schemas/api.github.com.yaml base/schemas/api.github.com.yaml
 
