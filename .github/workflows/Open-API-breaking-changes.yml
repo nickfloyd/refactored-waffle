@@ -5,6 +5,8 @@ name: openapi-diff
 jobs:
   job-name:
     runs-on: ubuntu-latest
+    container: 
+      image: openapitools/openapi-diff:latest
     steps: 
     - name: Check out HEAD revision
       uses: actions/checkout@v2
@@ -17,7 +19,8 @@ jobs:
         ref: ${{ github.base_ref }}
         path: base   
     - name: Run OpenAPI Diff (from HEAD revision)
-      uses: docker://openapitools/openapi-diff:latest 
-      with:
-        args: /home/runner/work/refactored-waffle/refactored-waffle/head/schemas/api.github.com.yaml /home/runner/work/refactored-waffle/refactored-waffle/base/api.github.com.yaml
+      run: openapi-diff /home/runner/work/refactored-waffle/refactored-waffle/head/schemas/api.github.com.yaml /home/runner/work/refactored-waffle/refactored-waffle/base/api.github.com.yaml
+      # uses: docker://openapitools/openapi-diff:latest 
+      # with:
+        # args: /home/runner/work/refactored-waffle/refactored-waffle/head/schemas/api.github.com.yaml /home/runner/work/refactored-waffle/refactored-waffle/base/api.github.com.yaml
 
