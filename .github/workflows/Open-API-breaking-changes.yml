@@ -21,10 +21,10 @@ jobs:
     - name: What OS
       run: uname -a
     - name: LS
-      run: cd /home/runner/work/refactored-waffle/refactored-waffle/head/schemas/ | ls
+      run: ls
     - name: Run OpenAPI Diff (from HEAD revision)
       # run: openapi-diff /home/runner/work/refactored-waffle/refactored-waffle/head/schemas/api.github.com.yaml /home/runner/work/refactored-waffle/refactored-waffle/base/api.github.com.yaml
       uses: docker://openapitools/openapi-diff:latest 
       with:
-        args: /home/runner/work/refactored-waffle/refactored-waffle/head/schemas/api.github.com.yaml /home/runner/work/refactored-waffle/refactored-waffle/base/api.github.com.yaml
+        args: /__w/refactored-waffle/refactored-waffle/head/schemas/api.github.com.yaml /__w/refactored-waffle/refactored-waffle/base/api.github.com.yaml
 
