@@ -286,7 +286,7 @@ paths:
               type: object
               additionalProperties: false
       responses:
-        '201':
+        '200':
           description: Response
           content:
             application/json:
