@@ -19,6 +19,5 @@ jobs:
           ref: ${{ github.base_ref }}
           path: base   
       - name: Run OpenAPI Diff (from HEAD revision)
-        run: docker build -t local-openapi-diff .
-        # run: openapitools/openapi-diff head/api.github.com.yaml base/api.github.com.yaml
+        run: openapi-diff head/api.github.com.yaml base/api.github.com.yaml
 
