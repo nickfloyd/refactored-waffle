@@ -28,7 +28,8 @@ jobs:
       uses: actions/github-script@47f7cf65b5ced0830a325f705cad64f2f58dddf7
       if: steps.comment.outputs.text != null
       env:
-        COMMENT: ${{ steps.comment.outputs.text }}
+        #COMMENT: ${{ steps.comment.outputs.text }}
+        COMMENT: ${{ "test" }}
       with:
         github-token: ${{ github.TOKEN }}
         script: |
@@ -40,6 +41,7 @@ jobs:
                 owner, 
                 repo, 
                 body: process.env.COMMENT 
+                event: COMMENT
               });
             }
           } catch (error) {
