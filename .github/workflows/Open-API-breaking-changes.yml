@@ -30,7 +30,7 @@ jobs:
       env:
         COMMENT: "test"
       with:
-        github-token: ${{ github.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         script: |
           const { issue: { number: pull_number }, repo: { owner, repo }  } = context;
           try {
