@@ -18,7 +18,7 @@ jobs:
     - name: Run OpenAPI Diff (from HEAD revision)
       uses: docker://openapitools/openapi-diff:latest 
       with:
-        args: head/schemas/api.github.com.yaml base/schemas/api.github.com.yaml --text results.txt
+        args: head/schemas/api.github.com.yaml base/schemas/api.github.com.yaml --markdown results.txt
     - name: Create results comment for the PR
       id: comment
       uses: pCYSl5EDgo/cat@master
