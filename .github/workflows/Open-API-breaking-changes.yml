@@ -40,8 +40,8 @@ jobs:
                 pull_number, 
                 owner, 
                 repo, 
-                body: process.env.COMMENT 
-                event: COMMENT
+                body: 'process.env.COMMENT' 
+                event: 'COMMENT'
               });
             }
           } catch (error) {
