@@ -29,7 +29,7 @@ jobs:
       if: steps.comment.outputs.text != null
       env:
         #COMMENT: ${{ steps.comment.outputs.text }}
-        COMMENT: ${{ "test" }}
+        COMMENT: "test"
       with:
         github-token: ${{ github.TOKEN }}
         script: |
