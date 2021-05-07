@@ -18,7 +18,7 @@ jobs:
     - name: Run OpenAPI Diff (from HEAD revision)
       uses: docker://openapitools/openapi-diff:latest 
       with:
-        args: --fail-on-incompatible head/schemas/api.github.com.yaml base/schemas/api.github.com.yaml --markdown results.md
+        args: head/schemas/api.github.com.yaml base/schemas/api.github.com.yaml --markdown results.md
     - name: Create results comment for the PR
       id: comment
       uses: pCYSl5EDgo/cat@master
