@@ -69878,6 +69878,12 @@ components:
       required: true
       schema:
         type: string
+    repository_id:
+      name: repository_id
+      in: path
+      required: true
+      schema:
+        type: string
     secret_name:
       name: secret_name
       description: secret_name parameter
