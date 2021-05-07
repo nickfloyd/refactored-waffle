@@ -16,9 +16,9 @@ jobs:
         ref: ${{ github.base_ref }}
         path: base   
     - name: Run OpenAPI Diff (from HEAD revision)
-      uses: docker://openapitools/openapi-diff:latest 
+      uses: docker://openapitools/openapi-diff:latest > results.txt
       with:
-        args: head/schemas/api.github.com.yaml base/schemas/api.github.com.yaml > results.txt
+        args: head/schemas/api.github.com.yaml base/schemas/api.github.com.yaml
     - name: Create results comment for the PR
       id: comment
       uses: pCYSl5EDgo/cat@master
