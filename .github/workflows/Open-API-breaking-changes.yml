@@ -18,7 +18,7 @@ jobs:
     - name: Run OpenAPI Diff (from HEAD revision)
       uses: docker://openapitools/openapi-diff:latest
       with:
-        args: head/schemas/api.github.com.yaml base/schemas/api.github.com.yaml --fail-on-incompatible --html results.txt
+        args: head/schemas/api.github.com.yaml base/schemas/api.github.com.yaml --text results.txt
     - name: Create results comment for the PR
       id: comment
       run: echo ::set-output name=results::$(cat results.txt)
@@ -32,4 +32,8 @@ jobs:
         script: |
           const { issue: { number: issue_number }, repo: { owner, repo }  } = context;
           github.issues.createComment({ issue_number, owner, repo, body: process.env.COMMENT });
+    - name: Run OpenAPI Diff (get state)
+      if: "!contains(steps.comment.outputs.results, 'API changes broke backward compatibility')"
+      run: exit 1
+  
 
