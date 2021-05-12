@@ -33,6 +33,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           const { issue: { number: issue_number }, repo: { owner, repo }  } = context;
+          console.log(JSON.stringify(context))
           github.issues.createComment({ issue_number, owner, repo, body: process.env.COMMENT });
     - name: Run OpenAPI Diff (get state)
       # This is fragile - the alternative is to run validation again with --state and validate that result
