@@ -38,7 +38,7 @@ jobs:
           github.issues.createComment({ issue_number, owner, repo, body: process.env.COMMENT });
     - name: Run OpenAPI Diff (get state)
       # This is fragile - the alternative is to run validation again with --state and validate that result
-      if: "contains(steps.comment.outputs.results, 'API changes broke backward compatibility')"
+      if: ${{ !env.ACT }} && "contains(steps.comment.outputs.results, 'API changes broke backward compatibility')"
       run: exit 1
   
 

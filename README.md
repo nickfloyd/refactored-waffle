@@ -16,6 +16,13 @@ If using [act](https://github.com/nektos/act) to dev the action locally run the 
 act pull_request -e /act_data/pull_request.json -s GITHUB_TOKEN=[TOKEN] --privileged --bind
 ```
 
+or if you are using env and secret files.
+
+```
+act pull_request -e /act_data/pull_request.json --env-file ${HOME}/.config/act/.env --secret-file ${HOME}/.config/act/vault.env --privileged --bind
+```
+
+
 Running act currently pollutes the repo root with the following directories and files but are ignored in .gitignore:
 
 ```
