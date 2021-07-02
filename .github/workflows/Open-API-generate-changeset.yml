@@ -29,6 +29,6 @@ jobs:
       with:
         branch: "test-changes-1"
         author: "Bot"
-        path: "${{GITHUB_WORKSPACE}}/head/schemas/"
+        path: ${{GITHUB_WORKSPACE}}/head/schemas/
         commit-message: "update changesets"
 
