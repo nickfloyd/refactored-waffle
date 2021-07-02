@@ -21,12 +21,9 @@ jobs:
       uses: gr2m/create-or-update-pull-request-action@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    # - name: Commit changeset files to the current branch
-    #   uses: gr2m/create-or-update-pull-request-action@v1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   with:
-    #     branch: test-changes-1 # ${GITHUB_REF##*/}
-    #     commit-message: "Committing generated changeset files"
-   
+      with:
+        branch: "test-changes-1"
+        author: "Bot"
+        path: "schemas/"
+        commit-message: "update changesets"
 
