@@ -2,7 +2,7 @@ on: [pull_request]
 
 name: Generate-OpenAPI-Changesets
 jobs:
-  detect-breaking-changes: 
+  generate-changesets: 
     runs-on: ubuntu-latest
     steps: 
     - name: Check out HEAD revision
@@ -15,13 +15,20 @@ jobs:
       with:
         ref: ${{ github.base_ref }}
         path: base 
+    - name : machine ls $GITHUB_WORKSPACE
+      run : "ls -la $GITHUB_WORKSPACE"
+    - name : machine ls $HOME
+      working-directory : "."
+      run : "ls -la $HOME"
     - name: Run OpenAPI Diff for changesets (from HEAD revision)
-      run: ruby $(pwd)/.github/workflows/generate_changeset.rb $(pwd)/base/schemas $(pwd)/head/schemas
+      run: ruby $(pwd)/base/.github/workflows/generate_changeset.rb $(pwd)/base/schemas $(pwd)/head/schemas
     - name: Commit changeset files to the current branch
       uses: gr2m/create-or-update-pull-request-action@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        branch: ${GITHUB_REF##*/}
-        path: "base/"
-        commit-message: "Committing generated changeset files"
-   
+        branch: "test-changes-1"
+        author: "Bot"
+        path: ${GITHUB_WORKSPACE}/head/schemas/
+        commit-message: "update changesets"
 
