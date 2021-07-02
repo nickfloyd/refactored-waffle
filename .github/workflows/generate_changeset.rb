@@ -25,6 +25,7 @@ def generate_changelogs(base_dir, head_dir)
       puts "Release #{release_name} has differences."
     end
   end
+  puts Dir[head_dir + '/**/*.changeset.txt']
 end
 
 def for_each_release(description_folder)
