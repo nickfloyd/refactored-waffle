@@ -22,7 +22,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        branch: ${GITHUB_REF##*/}
+        branch: test-changes-1 # ${GITHUB_REF##*/}
         path: "base/"
         commit-message: "Committing generated changeset files"
    
