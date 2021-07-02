@@ -16,7 +16,7 @@ jobs:
         ref: ${{ github.base_ref }}
         path: base 
     - name: Run OpenAPI Diff for changesets (from HEAD revision)
-      run: ruby $(pwd)/.github/workflows/generate_changeset.rb $(pwd)/base/schemas $(pwd)/head/schemas
+      run: ruby $(pwd)/base/.github/workflows/generate_changeset.rb $(pwd)/base/schemas $(pwd)/head/schemas
     - name: Commit changeset files to the current branch
       uses: gr2m/create-or-update-pull-request-action@v1
       with:
