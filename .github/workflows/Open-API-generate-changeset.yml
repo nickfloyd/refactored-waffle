@@ -24,6 +24,6 @@ jobs:
       with:
         branch: "test-changes-1"
         author: "Bot"
-        path: "schemas/"
+        path: "head/schemas/"
         commit-message: "update changesets"
 
