@@ -32,3 +32,12 @@ head
 workflow
 results
 ```
+
+### Other scripts
+
+This repo contains a ruby script that can be used to generate a change set between two sets of OpenAPI schemas.  There are example diff set schemas checked into this repo as well.
+Generate changesets by running the following command from the root.
+
+```
+ruby ./.github/workflows/generate_changeset.rb $PWD/schemas/base/descriptions $PWD/schemas/head/descriptions
+```

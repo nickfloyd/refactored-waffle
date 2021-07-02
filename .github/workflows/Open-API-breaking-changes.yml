@@ -1,6 +1,6 @@
 on: [pull_request]
 
-name: validate-OpenAPI-changes
+name: Validate-OpenAPI-Changes
 jobs:
   detect-breaking-changes: 
     runs-on: ubuntu-latest
