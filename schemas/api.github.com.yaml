@@ -69767,7 +69767,7 @@ components:
       in: path
       required: true
       schema:
-        type: string
+        type: integer
     comment_id:
       name: comment_id
       description: comment_id parameter
